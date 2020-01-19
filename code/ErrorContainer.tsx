@@ -11,7 +11,7 @@ let defaultVariants = {
     opacity: 0
   }
 };
-export function ErrorBox({ isError }) {
+export function ErrorContainer({ isError, children }) {
   return (
     <motion.div
       style={{
@@ -22,16 +22,17 @@ export function ErrorBox({ isError }) {
       variants={defaultVariants}
       animate={isError ? "show" : "hide"}
     >
-      ErrorBox
+      {children}
     </motion.div>
   );
 }
 
-ErrorBox.defaultProps = {
-  isError: true
+ErrorContainer.defaultProps = {
+  isError: true,
+  height: 50
 };
 
-addPropertyControls(ErrorBox, {
+addPropertyControls(ErrorContainer, {
   isError: {
     type: ControlType.Boolean
   }

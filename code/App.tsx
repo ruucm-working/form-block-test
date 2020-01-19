@@ -20,7 +20,7 @@ export function Input0(props): Override {
 var patt = new RegExp("^[0-9]+$"); // checking age
 export function InputAge0(props): Override {
   return {
-    errors: appState.inputAge0Error,
+    // errors: appState.inputAge0Error, // To directly show error with default style
     onChange: e => {
       let userInput = e.target.value;
       var result = userInput.match(patt);
@@ -33,5 +33,17 @@ export function InputAge0(props): Override {
         };
       } else appState.inputAge0Error = null;
     }
+  };
+}
+
+export function ErrorContainer0(props): Override {
+  return {
+    isError: appState.inputAge0Error
+  };
+}
+
+export function ErrorText0(props): Override {
+  return {
+    text: appState.inputAge0Error ? appState.inputAge0Error.age.message : "..."
   };
 }
