@@ -19,7 +19,14 @@ export function Input({
     registerValidation = {
       pattern: {
         value: /\d+/,
-        message: "not valid age"
+        message: "not a valid age"
+      }
+    };
+  else if (type === "email")
+    registerValidation = {
+      pattern: {
+        value: /\d+/,
+        message: "not a valid email"
       }
     };
   else

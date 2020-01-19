@@ -4,7 +4,8 @@ import { Override, Data } from "framer";
 // Learn more: https://framer.com/docs/overrides/
 
 const appState = Data({
-  inputAge0Error: null
+  inputAge0Error: null,
+  inputEmail0Error: null
 });
 
 export function Input0(props): Override {
@@ -58,5 +59,25 @@ export function ErrorContainer0(props): Override {
 export function ErrorText0(props): Override {
   return {
     text: appState.inputAge0Error ? appState.inputAge0Error.age.message : "..."
+  };
+}
+
+export function InputEmail0(props): Override {
+  return {
+    errors: appState.inputEmail0Error, // To directly show error with default style
+    onChange: e => {
+      let userInput = e.target.value;
+      if (
+        userInput.length > 0
+        // &&  !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,6}$/i.test(userInput)
+      ) {
+        console.log("err", userInput);
+        appState.inputEmail0Error = {
+          email: {
+            message: "invalid email!"
+          }
+        };
+      } else appState.inputEmail0Error = null;
+    }
   };
 }
