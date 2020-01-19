@@ -38,7 +38,20 @@ export function InputAge0(props): Override {
 
 export function ErrorContainer0(props): Override {
   return {
-    isError: appState.inputAge0Error
+    isError: appState.inputAge0Error,
+    variants: {
+      show: {
+        opacity: 1,
+        x: 0,
+        transition: {
+          duration: 0.28
+        }
+      },
+      hide: {
+        opacity: 0,
+        x: -300
+      }
+    }
   };
 }
 

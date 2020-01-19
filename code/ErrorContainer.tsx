@@ -11,7 +11,7 @@ let defaultVariants = {
     opacity: 0
   }
 };
-export function ErrorContainer({ isError, children }) {
+export function ErrorContainer({ isError, variants, children }) {
   return (
     <motion.div
       style={{
@@ -19,7 +19,7 @@ export function ErrorContainer({ isError, children }) {
         height: "100%",
         background: "pink"
       }}
-      variants={defaultVariants}
+      variants={variants ? variants : defaultVariants}
       animate={isError ? "show" : "hide"}
     >
       {children}
